@@ -31,7 +31,7 @@ Dado que o cliente já esteja logado no sistema ele poderá marcar uma consulta 
 Faça o download deste repositorio:
 
 ```
-$ git clone git@github.com:Luis-Felipe-Moreira-Sa/desafio_clinica.git
+$ git clone git@github.com:Luis-Felipe-Moreira-Sa/Clinica_Moreira.git
 ```
 
 Crie um maquina virtual e instale a bibliotecas disponiveis no 
@@ -39,7 +39,7 @@ arquivo requirementes.txt:
 
 Entre na pasta criada e inicie um ambiente virtual:
 ```
-$ cd projeto_clinica
+$ cd Clinica_Moreira
 $ virtualenv env
 ```
 Depois voce deve ativa-lo com o seguinte comando:

@@ -1,0 +1,10 @@
+@media screen and (min-width:992){
+    .navbar .container-fluid #navbar-main .navbar .navbar-default .navbar-fixed-top{
+        flex-direction: column;
+    }
+}
+
+.navbar {
+    width: 25%;
+    height: 100%;
+}

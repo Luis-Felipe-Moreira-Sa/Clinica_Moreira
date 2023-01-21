@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    Minha Conta | {{ block.super }}
+{% endblock%}
+
+{% block container %}
+     
+        <div class="row">
+            <div class="col-md-4">
+                <div class="list-group">
+                  {% if request.user.is_staff or request.user.is_superuser %}
+                  <a href="{% url 'medicos:agenda_lista'%}" class="list-group-item">Agendas</a>
+                  <a href="{% url 'medicos:medicos_lista'%}" class="list-group-item">Medicos</a>
+                  <a href="{% url 'medicos:especialidade_lista'%}" class="list-group-item">Especialidade</a>
+                  {% endif %}
+                </div>
+            </div>
+            <div class="col-md-8">
+            {% block accounts_container %}
+                <h2>Bem vindo {{ user.name }} </h2>
+            {% endblock  %}
+                
+            </div>
+{% endblock  %}
