@@ -20,8 +20,8 @@ from .forms import UserAdminCreationForm
 
 class IndexView(LoginRequiredMixin, DetailView):
     model = User
-    template_name = 'accounts/index.html'
-    login_url = reverse_lazy('accounts:login')
+    template_name = 'contas/index.html'
+    login_url = reverse_lazy('contas:login')
     
     def get_object(self):
         return self.request.user
@@ -30,18 +30,18 @@ class IndexView(LoginRequiredMixin, DetailView):
 class Login(LoginView):
 
     model = User
-    template_name = 'accounts/login.html'
+    template_name = 'contas/login.html'
 
 
 class Logout(LogoutView):
 
-    template_name = 'accounts/logged_out.html'
+    template_name = 'contas/logged_out.html'
 
 
 class RegisterView(CreateView):
 
     model = User
-    template_name = 'accounts/register.html'
+    template_name = 'contas/register.html'
     form_class = UserAdminCreationForm
     success_url = reverse_lazy('index')
     
@@ -60,7 +60,7 @@ def password_reset_request(request):
             if associated_users.exists():
                 for user in associated_users:
                     subject = "Password Reset Requested"
-                    email_template_name = "accounts/password/password_reset_email.txt"
+                    email_template_name = "contas/password/password_reset_email.txt"
                     c = {
                         "email": user.email,
                         'domain':'127.0.0.1:8000',
@@ -82,11 +82,11 @@ def password_reset_request(request):
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
                     
-                    return redirect('accounts:password_reset_done')
+                    return redirect('contas:password_reset_done')
     form = PasswordResetForm()
     return render(
         request=request, 
-        template_name="accounts/password/password_reset.html",
+        template_name="contas/password/password_reset.html",
         context={
             "form":form,
         })
@@ -94,10 +94,10 @@ def password_reset_request(request):
 class UpdateUserView(LoginRequiredMixin, UpdateView):
 
     model = User
-    login_url = reverse_lazy('accounts:login')
-    template_name = 'accounts/update_user.html'
+    login_url = reverse_lazy('contas:login')
+    template_name = 'contas/update_user.html'
     fields = ['name', 'email']
-    success_url = reverse_lazy('accounts:index')
+    success_url = reverse_lazy('contas:index')
 
     def get_object(self):
         return self.request.user
@@ -105,9 +105,9 @@ class UpdateUserView(LoginRequiredMixin, UpdateView):
 
 class UpdatePasswordView(LoginRequiredMixin, FormView):
 
-    template_name = 'accounts/update_password.html'
-    login_url = reverse_lazy('accounts:login')
-    success_url = reverse_lazy('accounts:index')
+    template_name = 'contas/update_password.html'
+    login_url = reverse_lazy('contas:login')
+    success_url = reverse_lazy('contas:index')
     form_class = PasswordChangeForm
 
     def get_form_kwargs(self):

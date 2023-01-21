@@ -41,10 +41,10 @@
           </ul>
           <ul class="nav navbar-info navbar-right">
             {% if user.is_authenticated %}
-              <li><a href="{% url 'accounts:logout' %}">Sair</a></li>
+              <li><a href="{% url 'contas:logout' %}">Sair</a></li>
             {% else %}
-              <li><a href="{% url 'accounts:login' %}">Entrar</a></li>
-              <li><a href="{% url 'accounts:register' %}">Cadastrar</a></li>
+              <li><a href="{% url 'contas:login' %}">Entrar</a></li>
+              <li><a href="{% url 'contas:register' %}">Cadastrar</a></li>
             {% endif %}
           </ul>
         </div>

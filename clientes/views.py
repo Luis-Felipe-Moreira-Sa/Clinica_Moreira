@@ -21,10 +21,10 @@ class ClienteCreateView(LoginRequiredMixin ,CreateView):
 class ClienteUpdateView(LoginRequiredMixin, UpdateView):
 
     model = Cliente
-    login_url = reverse_lazy('accounts:login')
-    template_name = 'accounts/update_user.html'
+    login_url = reverse_lazy('contas:login')
+    template_name = 'contas/update_user.html'
     fields = ['sexo', 'telefone', 'cpf']
-    success_url = reverse_lazy('accounts:index')
+    success_url = reverse_lazy('contas:index')
 
     def get_object(self):
         user = self.request.user
@@ -41,7 +41,7 @@ class ClienteUpdateView(LoginRequiredMixin, UpdateView):
 class ConsultaCreateView(LoginRequiredMixin, CreateView):
 
     model = Consulta
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'clientes/cadastro.html'
     fields = ['agenda']
     success_url = reverse_lazy('clientes:consulta_list')
@@ -63,7 +63,7 @@ class ConsultaCreateView(LoginRequiredMixin, CreateView):
 class ConsultaUpdateView(LoginRequiredMixin, UpdateView):
 
     model = Consulta
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'clientes/cadastro.html'
     fields = ['agenda']
     success_url = reverse_lazy('medicos:Consulta_lista')
@@ -84,7 +84,7 @@ class ConsultaDeleteView(LoginRequiredMixin, DeleteView):
 
 class ConsultaListView(LoginRequiredMixin, ListView):
     
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'clientes/consulta_list.html'
 
     def get_queryset(self):

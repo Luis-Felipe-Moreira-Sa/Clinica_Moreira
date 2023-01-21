@@ -8,7 +8,7 @@ import re
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0001_initial'),
+        ('contas', '0001_initial'),
     ]
 
     operations = [

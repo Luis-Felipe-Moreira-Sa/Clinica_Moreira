@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_cpf_cnpj',
     'widget_tweaks',
-    'accounts',
+    'contas',
     'clientes',
     'medicos',
 ]
@@ -147,8 +147,8 @@ TEMPLATES = [
 LOGIN = 'conta/entrar'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT = 'logout'
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'contas.User'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'accounts.backends.ModelBackend'
+    'contas.backends.ModelBackend'
 )

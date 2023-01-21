@@ -6,7 +6,7 @@ from django.conf import settings
 from django.contrib.auth import views as auth_views
 from . import views
 
-app_name = 'accounts'
+app_name = 'contas'
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -21,20 +21,20 @@ urlpatterns = [
     ),
     path('recuperar-senha-ok/', 
         auth_views.PasswordResetDoneView.as_view(
-        template_name='accounts/password/password_reset_done.html'
+        template_name='contas/password/password_reset_done.html'
         ),
         name='password_reset_done',
     ),
     path('recuperar-senha-completo/',
         auth_views.PasswordResetDoneView.as_view(
-            template_name='accounts/password/password_reset_complete.html'
+            template_name='contas/password/password_reset_complete.html'
             ),
             name='password_reset_complete',
     ),
     path('recuperar-senha-confirmar/<uidb64>/<token>/', 
         auth_views.PasswordResetConfirmView.as_view(
-        template_name='accounts/password/password_reset_confirm.html',
-        success_url=reverse_lazy("accounts:password_reset_complete")
+        template_name='contas/password/password_reset_confirm.html',
+        success_url=reverse_lazy("contas:password_reset_complete")
         ),
         name='password_reset_confirm'
     ),

@@ -19,17 +19,17 @@ class TestMixinIsAdmin(UserPassesTestMixin):
         messages.error(
             self.request, "Você não tem permissões!"
         )
-        return redirect("accounts:index")
+        return redirect("contas:index")
 
 class MedicoCreateView(LoginRequiredMixin, TestMixinIsAdmin, CreateView):
     model = Medico
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'medicos/cadastro.html'
     fields = ['nome', 'crm', 'email', 'telefone', 'especialidade']
     success_url = reverse_lazy('medicos:medicos_lista')
     
 class MedicoListView(LoginRequiredMixin, TestMixinIsAdmin, ListView):
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'medicos/doctors_list.html'
 
     def get_queryset(self):
@@ -37,13 +37,13 @@ class MedicoListView(LoginRequiredMixin, TestMixinIsAdmin, ListView):
     
 class EspecialidadeCreateView(LoginRequiredMixin, TestMixinIsAdmin, CreateView):
     model = Especialidade
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'medicos/cadastro.html'
     fields = ['nome',]
     success_url = reverse_lazy('medicos:especialidade_lista')
     
 class EspecialidadeListView(LoginRequiredMixin, TestMixinIsAdmin, ListView):
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'medicos/especialidade_list.html'
 
     def get_queryset(self):
@@ -52,7 +52,7 @@ class EspecialidadeListView(LoginRequiredMixin, TestMixinIsAdmin, ListView):
 
 class AgendaCreateView(LoginRequiredMixin, TestMixinIsAdmin, CreateView):
     model = Agenda
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'medicos/agenda_cadastro.html'
     fields = ['medico', 'dia', 'horario']
     success_url = reverse_lazy('medicos:agenda_lista')
@@ -64,7 +64,7 @@ class AgendaCreateView(LoginRequiredMixin, TestMixinIsAdmin, CreateView):
 class AgendaUpdateView(LoginRequiredMixin, TestMixinIsAdmin, UpdateView):
 
     model = Agenda
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'medicos/agenda_cadastro.html'
     fields = ['medico', 'dia', 'horario']
     success_url = reverse_lazy('medicos:agenda_lista')
@@ -85,7 +85,7 @@ class AgendaDeleteView(LoginRequiredMixin, TestMixinIsAdmin, DeleteView):
 
 class AgendaListView(LoginRequiredMixin, TestMixinIsAdmin, ListView):
     
-    login_url = 'accounts:login'
+    login_url = 'contas:login'
     template_name = 'medicos/agenda_list.html'
 
     def get_queryset(self):
